@@ -1,0 +1,122 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style_project/style.css">
+    <title>Nation Comparison</title>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script>
+      google.charts.load('current', {
+        'packages':['corechart', 'geochart']
+      });
+      google.charts.setOnLoadCallback(drawAllSheets);
+
+      function drawAllSheets() {
+        drawSheetName('GDP', 'SELECT A, B, C, D, E, F, G, H',gdpResponseHandler);
+        drawSheetName('Population', 'SELECT A, B, C, D, E, F, G, H', popuResponseHandler);
+        };//drawAllSheets
+
+      function drawSheetName(sheetName, query, responseHandler){
+          var queryString = encodeURIComponent(query);
+          var query = new google.visualization.Query(
+              'https://docs.google.com/spreadsheets/d/1SRzjmyddyl_RLdxE3Y2jIxOImcGQSmWGN5mrLuPKprM/gviz/tq?sheet='
+              + sheetName + "&headers=1&tq=" + queryString);
+              query.send(responseHandler);
+        };//drawSheetName
+
+        function gdpResponseHandler(response) {
+          var data = response.getDataTable();
+          data.sort({column:1, desc:true})
+
+          var options = {height:500,
+                         vAxis:{title: 'GDP ($ in million)'},
+                         hAxis: {title: 'Country'},
+                         //displayAnnotations: true
+                         }
+          var chart = new google.visualization.ScatterChart(document.getElementById('gdp_div'));
+          chart.draw(data, options);
+      }; //GDP 2012-2018
+
+      function popuResponseHandler(response) {
+          var data = response.getDataTable();
+          data.sort({column:1, desc:true})
+
+          var options = {height:500,
+                         vAxis:{title: 'Population'},
+                         hAxis: {title: 'Country'},
+                         //displayAnnotations: true
+                         }
+          var chart = new google.visualization.BubbleChart(document.getElementById('pop_div'));
+          chart.draw(data, options);
+      }; //Population 2012-2018
+
+         function checkError(response) {
+            if (response.isError()) {
+                alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage())
+                return;
+            }
+        } //checkError
+    </script>
+
+</head>
+<body>
+    <div id='main'>
+        <div id="header">
+            <div id="logo">
+                <div id="logo_text">
+                    <h1>Education, Healthcare and Military</h1>
+                    <br>
+                    <h2>An Spending Analysis on 10 countries in G-20 from 2012 to 2018</h2>
+                </div><!--logo_text-->
+            </div><!--logo-->
+            <div id="menubar">
+                <ul id="menu">
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="education.html">Education</a></li>
+                    <li><a href="healthcare.html">Healthcare</a></li>
+                    <li><a href="military.html">Military</a></li>
+                    <li class='selected'><a href="trends.html">Other & Conclusion</a></li>
+
+                </ul>
+            </div><!--menubar-->
+        </div><!-- header -->
+        <div id="site_content">
+            <div class = 'sidebar'>
+                <h3>Author</h3>
+                <h4>Wenyu Zeng</h4>
+                <h5><a href="mailto:wzeng96@gwu.edu">wzeng96@gwu.edu</a></h5>
+                <h3>Reference</h3>
+                <ul>
+                    <li><a href="https://developers.google.com/chart">Google Visualization API</a></li>
+                    <li><a href="https://www.worldbank.org/">World Bank</a></li>
+                    <li><a href="https://www.w3schools.com/html/">W3Schools - HTML</a></li>
+                </ul>
+            </div><!--sidebar-->
+            <div id="content">
+                <h2>GDP from 2012 to 2018</h2>                    
+                <div id="gdp_div" style="width: 600px; height: 500px;"></div>
+
+                <h2>Population from 2012 to 2018</h2>                    
+                <div id="pop_div" style="width: 600px; height: 500px;"></div>
+                <p>
+                    As a conclusion for this project, by both doing a geograph and a scatter plot of GDP from 2012 to 2018,
+                    we have confirmed that the United States has been the top for GDP. We can also see from the Bubble chart that
+                    China has the largest amount of population in the world, followed by the United States, this could explain
+                    why China has a second large amount of GDP for each year, its data for per capita is sometimes lower than
+                    other countries in the three directions: Education, Healthcare and Military.
+                </p>
+
+            </div><!--content-->
+        </div><!--site_content-->
+        <div id = 'footer'>
+            Copyright &copy; 2020 |
+            HTML5 | 
+            CSS3 | 
+            Developed by <a href="https://www.linkedin.com/in/wz96/">WZ</a>
+        </div><!--footer-->
+    </div><!-- main -->
+</body>
+</html>
+
+
+

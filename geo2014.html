@@ -1,0 +1,113 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style_project/style.css">
+    <title>Nation Comparison</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {
+          'packages':['geochart'],
+          'mapsApiKey': 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY'
+        });
+        google.charts.setOnLoadCallback(drawRegionsMap);
+  
+        function drawRegionsMap() {
+          var data = google.visualization.arrayToDataTable([
+            ['Country', 'GDP'],
+            ['Australia', 1467480],
+            ['Canada', 1801480],
+            ['China', 10438500],
+            ['France', 3883920],
+            ['Germany', 2852170],
+            ['Italy', 3063800],
+            ['Japan', 2159130],
+            ['RU', 4850410],
+            ['United Kingdom', 2059980],
+            ['United States', 17521700]
+          ]);
+  
+          var options = {};
+  
+          var chart = new google.visualization.GeoChart(document.getElementById('regions_2014_div'));
+  
+          chart.draw(data, options);
+        }
+      </script>                
+</head>
+<body>
+    <div id='main'>
+        <div id="header">
+            <div id="logo">
+                <div id="logo_text">
+                    <h1>Education, Healthcare and Military Spending Comparison</h1>
+                    <h2>An Analysis on top 10 countries' spendings from 2012 to 2018</h2>
+                </div><!--logo_text-->
+            </div><!--logo-->
+            <div id="menubar">
+                <ul id="menu">
+                    <li class='selected'><a href="about.html">About</a></li>
+                    <li><a href="education.html">Education</a></li>
+                    <li><a href="healthcare.html">Healthcare</a></li>
+                    <li><a href="military.html">Military</a></li>
+                    <li><a href="trends.html">Interesting Trend</a></li>
+
+                </ul>
+            </div><!--menubar-->
+        </div><!-- header -->
+        <div id="site_content">
+            <div class = 'sidebar'>
+                <h3>Author</h3>
+                <h4>Wenyu Zeng</h4>
+                <h5><a href="mailto:wzeng96@gwu.edu">wzeng96@gwu.edu</a></h5>
+                <h3>Reference</h3>
+                <ul>
+                    <li><a href="https://developers.google.com/chart">Google Visualization API</a></li>
+                    <li><a href="https://www.worldbank.org/">World Bank</a></li>
+                    <li><a href="https://www.w3schools.com/html/">W3Schools - HTML</a></li>
+                </ul>
+                <div class="services container">
+                    <div class="custom-select" style="width:200px;">
+                        <select onChange="window.location.href=this.value">
+                            
+                          <option value="geo2014.html">Year 2014</option>
+                          <option value="geo2012.html">Year 2012</option>
+                          <option value="geo2016.html">Year 2016</option>
+                          <option value='about.html'>Year 2018</option>
+                        </select>
+                    </div><!--custom-select-->
+                </div><!-- services_container -->
+            </div><!--sidebar-->
+            <div id="content">
+                <h1>About the Data</h1>
+                <p>
+                    This analysis contains data from 10 countries in G-20, the timeline are from 2012 to 2018.
+                    The 10 countries are Australia, Canada, China, France, Germany, Italy, Japan, Russia, the United Kingdom and 
+                    the United States.
+                    After doing data preprocessing, there isn't any missing values in this dataset. 
+
+                    This project will analysis the spendings of each country in three directions, Education, Healthcare and Military. 
+                    By doing so, we would like to see if there is any interesting trends or findings that are helpful to the whole world. 
+                </p>
+                <h2>Geographic Map of GDP of the 10 Nations in 2014</h2>
+                <ul>
+                    
+                  </head>
+                  <body>
+                    <div id="regions_2014_div" style="width: 600px; height: 500px;"></div>
+                  </body>
+
+
+                </ul>
+            </div><!--content-->
+        </div><!--site_content-->
+        <div id = 'footer'>
+            Copyright &copy; 2020 |
+            HTML5 | 
+            CSS3 | 
+            Developed by <a href="https://www.linkedin.com/in/wz96/">WZ</a>
+        </div><!--footer-->
+    </div><!-- main -->
+</body>
+</html>
+

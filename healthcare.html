@@ -1,0 +1,188 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style_project/style.css">
+    <title>Nation Comparison</title>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script>
+      google.charts.load('current', {
+        'packages':['corechart', 'geochart']
+      });
+      google.charts.setOnLoadCallback(drawAllSheets);
+
+      function drawAllSheets() {
+        drawSheetName('Healthcare', 'SELECT A, B, C, D, E, F, G, H',healthcareResponseHandler);
+        drawSheetName('healthcarepercapita', 'SELECT A, B, C, D, E, F, G, H', healthcarepercapitaResponseHandler);
+        drawSheetName('healthcaregrowth', 'SELECT A, B, C, D, E, F, G', healthcaregrowthResponseHandler);
+        drawSheetName();
+        };//drawAllSheets
+
+      function drawSheetName(sheetName, query, responseHandler){
+          var queryString = encodeURIComponent(query);
+          var query = new google.visualization.Query(
+              'https://docs.google.com/spreadsheets/d/1SRzjmyddyl_RLdxE3Y2jIxOImcGQSmWGN5mrLuPKprM/gviz/tq?sheet='
+              + sheetName + "&headers=1&tq=" + queryString);
+              query.send(responseHandler);
+        };//drawSheetName
+
+        function healthcareResponseHandler(response) {
+          var data = response.getDataTable();
+          data.sort({column:1, desc:true})
+
+          var options = {height:500,
+                         bars: 'horizontal',
+                         vAxis:{title: 'Country'},
+                         hAxis: {title: 'Healthcare Spending ($ in million)'},
+                        //  isStacked:true
+                         }
+          var chart = new google.visualization.ColumnChart(document.getElementById('healthcare_div'));
+          chart.draw(data, options);
+      }; //Healthcare 2012-2018
+
+      
+      function healthcarepercapitaResponseHandler(response){
+          var data = response.getDataTable();
+          data.sort({column:1, desc:true});
+
+          var formatter = new google.visualization.NumberFormat({prefix: '$', pattern: 'short'});
+          formatter.format(data, 1);
+
+          var options = {height:400,
+                          vAxis:{title:'Spending per Person ($)'},
+                          hAxis:{title:'Country'},
+                          aggregationTarget: 'country',
+                          isStacked: true
+                        };
+
+          var chart = new google.visualization.BarChart(document.getElementById("healthcare_per_capita_div"));
+          chart.draw(data,options);
+        }; //healthcare per capita
+
+      function healthcaregrowthResponseHandler(response){
+          var data = response.getDataTable();
+          data.sort({column:1, desc:true});
+
+          var options = {heights:400,
+                            vAxis: {title: 'Growth Rate in Percentage (%)'},
+                            hAxis: {title:'Country'},
+                            bar: {groupWidth: '75%'},
+                            legend: {position: 'top', maxLines: 3 },
+                            format: 'percent'};
+
+          var chart = new google.visualization.ColumnChart(document.getElementById('healthcaregrowth_div'));
+          chart.draw(data, options);
+
+      };//healthcaregrowth  
+
+      function totalResponseHandler(response){
+          var data = response.getDataTable();
+          data.sort({column:1, desc:true});
+
+          var options = {legend:'none',
+                        height:400,
+                        isStacked:true,
+                        annotations: {alwaysOutside:true},
+                        bars: 'horizontal',
+                        title: 'Education Spending vs. GDP (2014)',
+                        vAxis: {title: 'Country'},
+                        hAvis: {title: 'Spending in Millions ($)'}
+                        };
+          var chart = new google.visualization.BarChart(document.getElementById('educationvsgdp_2014_div'));
+          chart.draw(data, options);
+
+       };//education vs GDP 2014
+
+      function  percapitaResponseHandler(response){
+          var data = response.getDataTable();
+          data.sort({column:1, desc:true});
+
+          var options = {
+              legend: 'none',
+              bars: 'horizontal',
+              annotations: {alwaysOutside: true},
+              height:400,
+              vAxis:{title:'Country'},
+              hAxis:{title:'Education vs GDP per Person ($)'},
+            //   aggregationTarget: 'country',
+              isStacked: true
+          };
+
+          var chart = new google.visualization.BarChart(document.getElementById("per_capita_div"));
+
+          chart.draw(data,options);
+
+        }//perCapita
+      
+
+
+
+        function checkError(response) {
+            if (response.isError()) {
+                alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage())
+                return;
+            }
+        } //checkError
+    </script>
+
+</head>
+<body>
+    <div id='main'>
+        <div id="header">
+            <div id="logo">
+                <div id="logo_text">
+                    <h1>Education, Healthcare and Military</h1>
+                    <br>
+                    <h2>An Spending Analysis on 10 countries in G-20 from 2012 to 2018</h2>
+                </div><!--logo_text-->
+            </div><!--logo-->
+            <div id="menubar">
+                <ul id="menu">
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="education.html">Education</a></li>
+                    <li class='selected'><a href="healthcare.html">Healthcare</a></li>
+                    <li><a href="military.html">Military</a></li>
+                    <li><a href="trends.html">Interesting Trend</a></li>
+
+                </ul>
+            </div><!--menubar-->
+        </div><!-- header -->
+        <div id="site_content">
+            <div class = 'sidebar'>
+                <h3>Author</h3>
+                <h4>Wenyu Zeng</h4>
+                <h5><a href="mailto:wzeng96@gwu.edu">wzeng96@gwu.edu</a></h5>
+                <h3>Reference</h3>
+                <ul>
+                    <li><a href="https://developers.google.com/chart">Google Visualization API</a></li>
+                    <li><a href="https://www.worldbank.org/">World Bank</a></li>
+                    <li><a href="https://www.w3schools.com/html/">W3Schools - HTML</a></li>
+                </ul>
+            </div><!--sidebar-->
+            <div id="content">
+                <h2>Healthcare Spendings from 2012 to 2018</h2>                    
+                <div id="healthcare_div" style="width: 600px; height: 500px;"></div>
+
+                <h2>Healthcare Spendings (Per Capita) from 2012 to 2018</h2>
+                <div id='healthcare_per_capita_div' style='width:600px; height: 500px'></div>
+                <p>
+                    From the chart, we could see that most countries spend about the same amount of spendings in Healthcare each year,
+                    and the United States is the top country to spend the most for Healthcare for these years. The last two countries are the 
+                    United Kingdom and China. This is reasonable because the population in China is large, and this could be the main reason 
+                    why health per capita is the least for China. 
+                </p>
+                <h2>Fast Growing Countries in Healthcare</h2>
+                <div id="healthcaregrowth_div" style="width: 600px; height: 500px;"></div>
+
+            </div><!--content-->
+        </div><!--site_content-->
+        <div id = 'footer'>
+            Copyright &copy; 2020 |
+            HTML5 | 
+            CSS3 | 
+            Developed by <a href="https://www.linkedin.com/in/wz96/">WZ</a>
+        </div><!--footer-->
+    </div><!-- main -->
+</body>
+</html>
+
