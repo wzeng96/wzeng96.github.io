@@ -32,8 +32,8 @@
 
           var options = {height:500,
                          bars: 'horizontal',
-                         vAxis:{title: 'Country'},
-                         hAxis: {title: 'Healthcare Spending ($ in million)'},
+                         vAxis:{title: 'Healthcare Spending ($ in million)'},
+                         hAxis: {title: 'Country'},
                         //  isStacked:true
                          }
           var chart = new google.visualization.ColumnChart(document.getElementById('healthcare_div'));
@@ -49,8 +49,8 @@
           formatter.format(data, 1);
 
           var options = {height:400,
-                          vAxis:{title:'Spending per Person ($)'},
-                          hAxis:{title:'Country'},
+                          vAxis:{title:'Country'},
+                          hAxis:{title:'Spending per Person ($)'},
                           aggregationTarget: 'country',
                           isStacked: true
                         };
@@ -85,8 +85,8 @@
                         annotations: {alwaysOutside:true},
                         bars: 'horizontal',
                         title: 'Education Spending vs. GDP (2014)',
-                        vAxis: {title: 'Country'},
-                        hAvis: {title: 'Spending in Millions ($)'}
+                        vAxis: {title: 'Spending in Millions ($)'},
+                        hAvis: {title: 'Country'}
                         };
           var chart = new google.visualization.BarChart(document.getElementById('educationvsgdp_2014_div'));
           chart.draw(data, options);
@@ -142,7 +142,7 @@
                     <li><a href="education.html">Education</a></li>
                     <li class='selected'><a href="healthcare.html">Healthcare</a></li>
                     <li><a href="military.html">Military</a></li>
-                    <li><a href="trends.html">Interesting Trend</a></li>
+                    <li><a href="trends.html">Other & Conclusion</a></li>
 
                 </ul>
             </div><!--menubar-->

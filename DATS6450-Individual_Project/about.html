@@ -51,7 +51,7 @@
                     <li><a href="education.html">Education</a></li>
                     <li><a href="healthcare.html">Healthcare</a></li>
                     <li><a href="military.html">Military</a></li>
-                    <li><a href="trends.html">Interesting Trend</a></li>
+                    <li><a href="trends.html">Other & Conclusion</a></li>
 
                 </ul>
             </div><!--menubar-->
