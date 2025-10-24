@@ -5,8 +5,8 @@ permalink: /about/
 author_profile: true
 ---
 
-👋 Hi! I'm **Wenyu Zeng**, a PhD student in the **Biomedical and Health Informatics** program at the **University of Washington**.  
-My research combines **spatial transcriptomics**, **single-cell RNA-sequencing**, and **machine learning** to better understand **glioblastoma**, one of the most aggressive brain cancers.
+👋 Hi! My name is **Wenyu Zeng**, a PhD candidate in the **Biomedical and Health Informatics** program at the **University of Washington**.  
+My research combines **spatial transcriptomics**, **single-cell RNA-sequencing**, and **machine learning** to better understand **glioblastoma**, the most aggressive brain cancers.
 
 ---
 
