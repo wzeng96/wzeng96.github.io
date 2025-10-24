@@ -1,8 +1,11 @@
 ---
 layout: archive
 title: "About Me"
-permalink: /about/
+permalink: /
 author_profile: true
+redirect_from: 
+  - /about/
+  - /about.html
 ---
 
 👋 Hi! My name is **Wenyu Zeng**, a PhD candidate in the **Biomedical and Health Informatics** program at the **University of Washington**.  
