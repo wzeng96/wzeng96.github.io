@@ -23,7 +23,7 @@ repository               : "wzeng96/wzeng96.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile.png"
+  avatar           : "Wenyu.Zeng.png"
   name             : "Wenyu Zeng"
   pronouns         : "she/her"  
   bio              : "PhD student in Biomedical & Health Informatics at the University of Washington. My research focuses on building scalable computational pipelines that integrate spatial transcriptomics and single-cell sequencing data to study glioblastoma heterogeneity. I’m passionate about combining biomedical data science and translational research to better understand tumor biology and identify therapeutic targets. Beyond research, I enjoy data visualization, teaching, and exploring new ways to make complex data accessible and meaningful."
