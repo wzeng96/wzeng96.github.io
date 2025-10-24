@@ -2,7 +2,7 @@
 title: "Learning from Elders: Making an LLM-powered Chatbot for Retirement Communities more Accessible through User-centered Design"
 collection: outputs
 category: abstracts
-permalink: /output/2025-learning-from-elders
+permalink: /publications/2025-learning-from-elders
 excerpt: "Designing an accessible LLM-powered chatbot to support older adults in retirement communities using a human-centered approach."
 date: 2025-04-28
 venue: "arXiv preprint arXiv:2504.08985"
