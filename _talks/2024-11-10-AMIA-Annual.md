@@ -1,7 +1,7 @@
 ---
 title: "An Ontology-Guided Analysis to Unveil Disparities of Social History Documentation in Discharge Notes"
 collection: talks
-type: "Talk"
+type: "Poster"
 permalink: /talks/2024-11-01-AMIA-Annual
 venue: "AMIA Annual Symposium"
 date: 2024-11-10
