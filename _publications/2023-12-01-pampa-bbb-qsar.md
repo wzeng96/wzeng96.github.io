@@ -1,6 +1,6 @@
 ---
 title: "Development and validation of PAMPA-BBB QSAR model to predict brain penetration potential of novel drug candidates"
-collection: outputs
+collection: publications
 category: manuscripts
 permalink: /publications/2023-pampa-bbb-qsar
 excerpt: "QSAR models trained on the largest PAMPA-BBB dataset to date to predict small-molecule brain penetration—an orthogonal complement to in vivo and Caco-2/MDCK assays."
