@@ -24,9 +24,9 @@ repository               : "wzeng96/wzeng96.github.io"
 author:
   # Biographic information
   avatar           : "profile.png"
-  name             : "Sidebar"
+  name             : "Wenyu Zeng"
   pronouns         : "she/her"  
-  bio              : "Short biography for the left-hand sidebar"
+  bio              : "PhD student in Biomedical & Health Informatics at the University of Washington. My research focuses on building scalable computational pipelines that integrate spatial transcriptomics and single-cell sequencing data to study glioblastoma heterogeneity. I’m passionate about combining biomedical data science and translational research to better understand tumor biology and identify therapeutic targets. Beyond research, I enjoy data visualization, teaching, and exploring new ways to make complex data accessible and meaningful."
   location         : "Seattle, WA"
   employer         : "University of Washington"
   uri              : https://wzeng96.github.io/
@@ -54,7 +54,7 @@ author:
 
   # Social media
   artstation       : # Username
-  bluesky          : "bsky.app" # Replace this with you Bluesky username
+  bluesky          : # "bsky.app" # Replace this with you Bluesky username
   facebook         : # Username
   flickr           : # Username
   foursquare       : # Username
